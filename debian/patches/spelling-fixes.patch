@@ -1,0 +1,43 @@
+Description: Spelling fixes
+Author: Stephen Kitt <skitt@debian.org>
+
+--- a/doc/gob2.1.in
++++ b/doc/gob2.1.in
+@@ -519,7 +519,7 @@
+ .fi
+ .PP
+ The above example also gives an example of automatic linking to a standard data
+-memember.  By including the attribute \'link\' a get and set handlers will be
++member.  By including the attribute \'link\' a get and set handlers will be
+ automatically added without having to type them by hand.  This is useful for a
+ vast majority data types that are just linked to some standard data member and
+ do not need to do anything extra on get or set.
+@@ -559,7 +559,7 @@
+ For complete type safety it is useful to use the get/set methods that
+ are defined by using the \'export\' attribute.
+ .PP
+-To get bettery type safety on some of the property types, you can specify
++To get better type safety on some of the property types, you can specify
+ the \'type\' attribute which will add casts where appropriate in code dealing
+ with this property.  This is especially useful for POINTER and OBJECT types.
+ But even for others.
+--- a/src/main.c
++++ b/src/main.c
+@@ -355,7 +355,7 @@
+ 		   "  This is to avoid unused warnings if you don't call\n"
+ 		   "  some method.  I need to find a better way to do\n"
+ 		   "  this, not needed in GCC since we use some gcc\n"
+-		   "  extentions to make saner, faster code */\n"
++		   "  extensions to make saner, faster code */\n"
+ 		   "static void\n"
+ 		   "___%s_really_bad_hack_to_avoid_warnings(void)\n"
+ 		   "{\n", funcbase);
+@@ -4261,7 +4261,7 @@
+ 		"\t--for-cpp               Create C++ files\n"
+ 		"\t--no-extern-c           Never print extern \"C\" into the "
+ 	       				  "header\n"
+-		"\t--no-gnu                Never use GNU extentions\n"
++		"\t--no-gnu                Never use GNU extensions\n"
+ 		"\t--no-touch              Don't touch output files unless they "
+ 		                          "really\n"
+ 		"\t                        changed (implies --no-touch-headers)\n"

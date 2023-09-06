@@ -1,0 +1,621 @@
+Description: Fix man page quotes
+Author: Stephen Kitt <skitt@debian.org>
+
+--- a/doc/gob2.1.in
++++ b/doc/gob2.1.in
+@@ -49,15 +49,15 @@
+ extensions are always wrapped in #ifdef __GNUC__, so code using them compiles
+ correctly even on non-GNU compilers.  This option is for purists only.
+ (using GNU extensions some warnings are eliminated, some ugly hacks and there
+-is better argument type safety, so it\'s good to use them)
++is better argument type safety, so it's good to use them)
+ .TP
+ .B \-\-no\-touch
+-Don\'t touch output files unless they really
++Don't touch output files unless they really
+ changed (implies \-\-no\-touch\-headers).  Be careful with automake, see section
+ PREVENTING SPURIOUS BUILDS.
+ .TP
+ .B \-\-no\-touch\-headers
+-Don\'t touch the generated header file unless it really changed, this avoids
++Don't touch the generated header file unless it really changed, this avoids
+ spurious rebuilds, but can confuse some make systems (automake in particular),
+ so it is not enabled by default.  Private header is still touched even if
+ unchanged however.
+@@ -85,7 +85,7 @@
+ Do not write any output files, just check syntax of the input file.
+ .TP
+ .B \-\-no\-lines
+-Do not print out the \'#line\' statements into the output.  Useful for debugging
++Do not print out the '#line' statements into the output.  Useful for debugging
+ the auto-generated generated code.
+ .TP
+ .B \-\-no\-self\-alias
+@@ -104,7 +104,7 @@
+ The directory into which output should be placed.
+ .TP
+ .B \-\-file\-sep[=c]
+-Replace default \'\-\' file name separator.  If no separator character
++Replace default '\-' file name separator.  If no separator character
+ is given then none is used.  Only one character can be used.
+ .TP
+ .B \-\-gtk3
+@@ -114,7 +114,7 @@
+ .PP
+ Because we need to parse out different parts of the typename, sometimes you
+ need to specify the typename with some special syntax.  Types are specified in
+-capitalized form and words are separated by \':\'.  The first word of the type
++capitalized form and words are separated by ':'.  The first word of the type
+ (which can be empty) is the "namespace".  This fact is for example used for the
+ type checking macro and the type macro.  For "Gtk:New:Button", the macros will
+ be GTK_IS_NEW_BUTTON and GTK_TYPE_NEW_BUTTON.  This colon separated format of
+@@ -124,7 +124,7 @@
+ .SH OUTPUT FILES
+ .PP
+ The filenames are created from the typename.  The words are
+-separated by \'\-\' (this can be changed with
++separated by '\-' (this can be changed with
+ \fB\-\-file\-sep\fR option) and all in lower case.  For example for an object named
+ "Gtk:New:Button", the files are \fBgtk\-new\-button.c\fR and
+ \fBgtk\-new\-button.h\fR.
+@@ -141,23 +141,23 @@
+ 
+ .SH INCLUDING NORMAL C CODE IN THE OUTPUT FILES
+ .PP
+-To include some code directly in the output C file begin with \'%{\'
+-on an empty line and end the code with a \'%}\' on an empty line.  These
++To include some code directly in the output C file begin with '%{'
++on an empty line and end the code with a '%}' on an empty line.  These
+ sections will appear in the output files in the order they are given.
+ There are several other \fIsections\fR to which you can put code.  You can
+-put it in the \'header\' section (which can be abbreviated \'h\') and it will
+-go into the public header file.  You can also put it in the \'privateheader\'
+-section (abbreviated \'ph\') which will make the code go into the private
++put it in the 'header' section (which can be abbreviated 'h') and it will
++go into the public header file.  You can also put it in the 'privateheader'
++section (abbreviated 'ph') which will make the code go into the private
+ header file.  Sometimes you want some code (other includes) to appear before
+ the extern "C" and the protecting define.  To do this you can put them
+-into the \'headertop\' (or \'ht\') section.  You may wish to include code or
+-comments in all the files, which you can do by putting them into the \'all\'
+-(or \'a\') section.  Similarly, code you wish to appear at the top of all
+-files go in the \'alltop\' (or \'at\') section.  When you want code
+-to appear as in alltop but only in the cfile you use the \'ctop\' (or \'ct\')
+-section.  Note that ctop requires 2.0.18.   Finally,
+-\'afterdecls\' includes code between the declarations and the method
+-implementations, but note that \'afterdecls\' requires version 2.0.16.
++into the 'headertop' (or 'ht') section.  You may wish to include code or
++comments in all the files, which you can do by putting them into the 'all'
++(or 'a') section.  Similarly, code you wish to appear at the top of all
++files go in the 'alltop' (or 'at') section.  When you want code
++to appear as in alltop but only in the cfile you use the 'ctop' (or 'ct')
++section.  Note that ctop requires 2.0.18.   Finally, 'afterdecls'
++includes code between the declarations and the method
++implementations, but note that 'afterdecls' requires version 2.0.16.
+ For example:
+ .nf
+ 
+@@ -215,7 +215,7 @@
+ for this just as it does for the regular header file.  If you do explicitly
+ include the regular header file, you should always include this private
+ header file below it.  That is, if you use any private data members.  If you
+-don\'t, the private header file automatically includes the public header file,
++don't, the private header file automatically includes the public header file,
+ and thus the public header file will be indirectly included at the very top
+ of the file.
+ 
+@@ -235,7 +235,7 @@
+ 
+ .fi
+ .PP
+-To make an abstract class (to pass G_TYPE_FLAG_ABSTRACT) add \'(abstract)\'
++To make an abstract class (to pass G_TYPE_FLAG_ABSTRACT) add '(abstract)'
+ before the curly braces above.  This works since version 2.0.13.
+ 
+ .SH DATA MEMBERS
+@@ -244,7 +244,7 @@
+ one is class wide (global) in scope and one is a virtual one, usually linked to
+ a normal data member or a class wide data member.  The three normal data
+ members are public, protected and private.  Public and protected are basically
+-just entries in the object structure, while private has it\'s own dynamically
++just entries in the object structure, while private has it's own dynamically
+ allocated private structure.  Protected members are always put after the public
+ one in the structure and are marked protected in the header file.  There is
+ only one identifier allowed per typename unlike in normal C.  Example:
+@@ -257,7 +257,7 @@
+ .fi
+ .PP
+ Public and protected data members are accessed normally as members of
+-the object struct.  Example where \'i\' is as above a public data member:
++the object struct.  Example where 'i' is as above a public data member:
+ .nf
+ 
+   object\->i = 1;
+@@ -267,14 +267,14 @@
+ The private data members are defined in a structure which is only available
+ inside the .c file, or by including a private header file.  You must access
+ them using the structure _priv.  Example
+-where \'h\' is the private data member (as in the above example):
++where 'h' is the private data member (as in the above example):
+ .nf
+ 
+   object\->_priv\->h = NULL;
+ 
+ .fi
+ The _priv structure is defined in the \fB<basename>\-private.h\fR.
+-This file is automatically included if you don\'t include it yourself.  You
++This file is automatically included if you don't include it yourself.  You
+ should always explicitly include it in your .gob file if you explicitly also
+ include the main header file.  The reason it is a separate header file is
+ that you can also include it in other places that need to access this objects
+@@ -314,7 +314,7 @@
+ You can automatically initialize the public private and protected data members
+ without having to add an init method.  The advantage here is that
+ initialization is kept close to the definition of the data member and thus
+-it\'s easier to check.  To do this, just add a \'=\' followed by a number or
++it's easier to check.  To do this, just add a '=' followed by a number or
+ a token.  It is also possible to include arbitrary C code for more elaborate
+ initializations by putting it all in curly braces.  Note that the curly braces
+ will not be printed into the output, but since gob does not C parsing it needs
+@@ -334,7 +334,7 @@
+ Most data stored as pointers needs to have a function called when the object
+ is finalized to either free the data.  Gob will let you
+ define a function to be called on the data the object is finalized.  This is
+-achieved by putting \'destroywith\' followed by a function name after the
++achieved by putting 'destroywith' followed by a function name after the
+ variable definition.  It is only called if the data you defined this on
+ is not NULL, so you cans specify functions which do not handle NULL.  It
+ is very much like the GDestroyNotify function used in GTK+ and glib in many
+@@ -374,9 +374,9 @@
+ 
+ .fi
+ The thing to remember with these is that there are many ways to do this
+-and you\'d better be consistent in your code in how you use the above things.
++and you'd better be consistent in your code in how you use the above things.
+ Also defining a helper routine that will do the destruction will be a nicer
+-thing to do if that\'s a possibility.  The "destroy" keyword with code does
++thing to do if that's a possibility.  The "destroy" keyword with code does
+ take up more space in the file and it may become more cluttered.
+ .PP
+ The data is zeroed out after being destroyed.  This is to make debugging easier
+@@ -422,8 +422,8 @@
+ identifier "self" as pointer to the object instance.  The type is defined as
+ one of the GObject type enums, but without the G_TYPE_ prefix.  There are
+ also some attributes of a property which you can set.  For example the
+-following is a definition of an integer property \'height\' which will
+-be synchronized with a private integer data member also of the name \'height\'.
++following is a definition of an integer property 'height' which will
++be synchronized with a private integer data member also of the name 'height'.
+ .nf
+ 
+   private int height;
+@@ -442,57 +442,57 @@
+ .PP
+ The attributes are really optional though you should at least set some
+ of them.
+-All property types have a \'nick\' and a \'blurb\' attribute and you should
++All property types have a 'nick' and a 'blurb' attribute and you should
+ set those accordingly.  This will make runtime querying the object
+ nicer as things such as gui editors and class browsers can be more
+ verbose about the class itself.
+ .PP
+-The \'name\' property is canonical name of property. It is useful when you try to
+-implement properties with no C names like \'vertical-scroll\'. The \'name\'
++The 'name' property is canonical name of property. It is useful when you try to
++implement properties with no C names like 'vertical-scroll'. The 'name'
+ property can be omitted.
+ .PP
+-You can use the \'_("string")\' notation
++You can use the '_("string")' notation
+ instead of just "string", and that will mark the string for translation.
+ .PP
+-Almost all types also have a \'default_value\' attribute which sets the initial
++Almost all types also have a 'default_value' attribute which sets the initial
+ value of this property (on object initialization, the set handler will be run
+ automatically with this value).  This value will be overridden if the user 
+ sets a value of this property on the call to g_object_new.
+ .PP
+-All the numeric types (including CHAR) have \'minimum\' and \'maximum\'
++All the numeric types (including CHAR) have 'minimum' and 'maximum'
+ attributes which can restrict the range.  If you do not specify these
+ the range will be the full range that the data type can handle.
+ .PP
+-Types such as UNICHAR and BOOLEAN only have the \'nick\', \'blurb\' and
+-\'default_value\' attributes.
++Types such as UNICHAR and BOOLEAN only have the 'nick', 'blurb' and
++ 'default_value' attributes.
+ .PP
+-The ENUM type has an \'enum_type\' attribute which is the exact
++The ENUM type has an 'enum_type' attribute which is the exact
+ type of the enum.  This is so that the property knows which exact
+ type you can set, rather then just knowing it is an enum.  You should
+ always create an enum type specific for the enum itself (see section
+ on the enum types)
+ .PP
+-Similarly FLAGS type has a \'flags_type\' which again you should set to
++Similarly FLAGS type has a 'flags_type' which again you should set to
+ the specific type of this flags data member.
+ .PP
+-There is a STRING type which has only the extra \'default_value\' attribute.
++There is a STRING type which has only the extra 'default_value' attribute.
+ .PP
+-The OBJECT type is one of the types that doesn\'t have a \'default_value\' and it
+-only has an \'object_type\' attribute (in addition to nick and blurb of course)
++The OBJECT type is one of the types that doesn't have a 'default_value' and it
++only has an 'object_type' attribute (in addition to nick and blurb of course)
+ that is the exact object type that this property accepts.  The object_type
+-should be as a type, that is for example \'Gtk:Button\'.
++should be as a type, that is for example 'Gtk:Button'.
+ .PP
+ There is a BOXED type which is a pointer which has a boxed type defined
+ (such that GObject knows how to copy and destroy this pointer).  Here
+-you will need to specify the \'boxed_type\' attribute with the specific
++you will need to specify the 'boxed_type' attribute with the specific
+ type of the boxed pointer.
+ .PP
+-There is also a POINTER type, which has only the \'nick\' and \'blurb\'
++There is also a POINTER type, which has only the 'nick' and 'blurb'
+ attributes.  This is for storing arbitrary pointers.  You should be
+ careful with this one, as GObject knows nothing about the data
+-stored at this pointer.  It is somewhat like a \'void *\' type.
++stored at this pointer.  It is somewhat like a 'void *' type.
+ .PP
+-There is also the PARAM type for storing parameters with a \'param_type\'
++There is also the PARAM type for storing parameters with a 'param_type'
+ attribute.
+ .PP
+ You should notice that this list is pretty much like the list of g_param_spec_*
+@@ -501,8 +501,8 @@
+ yet.
+ .PP
+ You can also specify extra flags, such as CONSTRUCT or CONSTRUCT_ONLY using the
+-\'flags\' attribute.  You can specify multiple flags by oring them together with
+-\'|\'.  These flags correspond to the GParamFlags enumeration except do not
++ 'flags' attribute.  You can specify multiple flags by oring them together with
++ '|'.  These flags correspond to the GParamFlags enumeration except do not
+ include the G_PARAM_ prefix.  So for example to define an enumeration property,
+ which is a CONSTRUCT_ONLY property, we could do the following:
+ .nf
+@@ -519,7 +519,7 @@
+ .fi
+ .PP
+ The above example also gives an example of automatic linking to a standard data
+-member.  By including the attribute \'link\' a get and set handlers will be
++member.  By including the attribute 'link' a get and set handlers will be
+ automatically added without having to type them by hand.  This is useful for a
+ vast majority data types that are just linked to some standard data member and
+ do not need to do anything extra on get or set.
+@@ -527,7 +527,7 @@
+ Another extra feature of properties is the possibility of automatically
+ exporing methods to get and set the property.  That is without having to
+ use g_object_set and g_object_get.  This is achieved by adding an
+-\'export\' attribute to the list of property attributes.
++ 'export' attribute to the list of property attributes.
+ .PP
+ If you do not define a set or get handler, the property will automatically
+ be only readable or writable as appropriate.
+@@ -557,17 +557,17 @@
+ Note however that the type safety only works completely on GNU C compilers.
+ The code will compile on other compilers but with minimal type safety.
+ For complete type safety it is useful to use the get/set methods that
+-are defined by using the \'export\' attribute.
++are defined by using the 'export' attribute.
+ .PP
+ To get better type safety on some of the property types, you can specify
+-the \'type\' attribute which will add casts where appropriate in code dealing
++the 'type' attribute which will add casts where appropriate in code dealing
+ with this property.  This is especially useful for POINTER and OBJECT types.
+ But even for others.
+ .PP
+ You can also override properties from parent objects (that is override their
+ implementation, not their attributes).  Do this by adding the
+-special \'override\' attribute.  For example if the parent object
+-had a \'height\' property then you could override it by
++special 'override' attribute.  For example if the parent object
++had a 'height' property then you could override it by
+ .nf
+ 
+   private int height;
+@@ -592,8 +592,8 @@
+ later.  You can also
+ define init and class_init methods with a special definition if you want
+ to add code to the constructors or you can just leave them out.
+-You can also not define a body for a method, by just using \';\' instead of a
+-body.  This will define an empty function.  You can\'t do this for non-void
++You can also not define a body for a method, by just using ';' instead of a
++body.  This will define an empty function.  You can't do this for non-void
+ regular public, private or protected methods, however it is acceptable for
+ non-void virtual, signal and override methods.
+ .PP
+@@ -604,7 +604,7 @@
+ which gob will translate into a pointer to the object instance.  The rest
+ of the arguments are very similar to normal C arguments.  If the
+ typename is an object pointer you should use the syntax defined above
+-with the words separated by \':\'
++with the words separated by ':'
+ .nf
+ <type> <argument id>
+ or
+@@ -636,7 +636,7 @@
+ For method that aren't virtual, signal or override methods, and aren't
+ init or class_init, GLib function attribute macros G_GNUC_PRINTF,
+ G_GNUC_SCANF, and G_GNUC_FORMAT can optionally be included after the
+-argument list.  Simply include an \'attr\' keyword and the C code to include
++argument list.  Simply include an 'attr' keyword and the C code to include
+ in the file.  You have to include braces and anything inside the braces
+ will be printed into the header file after the function declaration and
+ before the trailing semicolon.  The braces themselves are not printed.
+@@ -652,7 +652,7 @@
+ This will produce a prototype which will generate a warning at compile
+ time if the contents of the format argument (argument number 2) aren't
+ consistent with the types and number of the subsequent variadic
+-arguments (the first of which is argument number 3).  Only one \'attr\'
++arguments (the first of which is argument number 3).  Only one 'attr'
+ keyword per method is allowed.
+ If you have more than one attribute to include, you should
+ put them all within the braces.
+@@ -663,7 +663,7 @@
+ Methods which have a return value, there also has to be something
+ returned if there is an error, such as if a precondition is not met.
+ The default is 0, casted to the type of the method.  If you need to
+-return something else then you can specify an \'onerror\' keyword after
++return something else then you can specify an 'onerror' keyword after
+ the prototype and any optional function attribute macros, and after
+ that a number, a token (an identifier) or a bit of C code enclosed in
+ braces {}.  The braces will not be printed into the output, they just
+@@ -676,16 +676,16 @@
+ 
+ .fi
+ The onerror value is also used in overrides that have a return value, in
+-case there isn\'t a parent method, PARENT_HANDLER will return it.  More about
++case there isn't a parent method, PARENT_HANDLER will return it.  More about
+ this later.
+ .PP
+ .B "Default return:"
+ .PP
+ Some signal and virtual methods have a return type.  But what happens if
+ there is no default handler and no one connects to a signal.  GOB2 will
+-normally have the wrappers return whatever you specify with onerror or \'0\'
+-if you haven\'t specified anything.  You can also specify a default
+-return value with the keyword \'defreturn\'.  It\'s use is identical to the
++normally have the wrappers return whatever you specify with onerror or '0'
++if you haven't specified anything.  You can also specify a default
++return value with the keyword 'defreturn'.  It's use is identical to the
+ use of onerror, and you can in fact use both at the same time.  Example
+ .nf
+ 
+@@ -701,7 +701,7 @@
+ class_init.  You define them by just using the init or class_init keyword 
+ with an untyped argument in the argument list.  The argument will be
+ usable in your function as a pointer to your object or class depending if
+-it\'s init or class_init.
++it's init or class_init.
+ For example:
+ .nf
+ 
+@@ -754,7 +754,7 @@
+ the method in a derived class, you must then use an override method (more
+ on those later).
+ They can be empty
+-(if you put \';\' instead of the C code).  A wrapper will also be defined
++(if you put ';' instead of the C code).  A wrapper will also be defined
+ which makes calling the methods he same as public methods.  This type of
+ method is just a little bit "slower" then normal functions, but not as
+ slow as signals.  You define them by using "virtual" keyword before the
+@@ -806,12 +806,12 @@
+   
+ .fi
+ .PP
+-If you don\'t want the wrapper that emits the signal to be public, you can
++If you don't want the wrapper that emits the signal to be public, you can
+ include the keyword "private" after the "signal" keyword.  This will make
+ the wrapper a normal private method.  You can also make a protected wrapper
+ by using "protected" instead of "private".
+ .PP
+-If you don\'t define a "first" or a "last", the default will be taken as
++If you don't define a "first" or a "last", the default will be taken as
+ "last".
+ .PP
+ You can also add additional flags.  You do this just like with the argument
+@@ -860,7 +860,7 @@
+ override method.  After the "override" keyword, you should put the
+ typename of the class you are overriding a method from.  Other then that
+ it is the same as for other methods.  The "self" pointer in this case
+-should be the type of the method you are overriding so that you don\'t
++should be the type of the method you are overriding so that you don't
+ get warnings during compilation.  Also to call the method of the parent
+ class, you can use the PARENT_HANDLER macro with your arguments.  Example:
+ .nf
+@@ -879,7 +879,7 @@
+ .PP
+ .B "Method names:"
+ .PP
+-Inside the code, aliases are set for the methods, so that you don\'t
++Inside the code, aliases are set for the methods, so that you don't
+ have to type the class name before each call, just type \fBself_\fR instead
+ of the name of the class.  So to call a method called \fBblah\fR, you
+ would use the name \fBself_blah\fR.
+@@ -948,13 +948,13 @@
+ GOB_VERSION_MINOR and GOB_VERSION_PATCHLEVEL if you wish to for example
+ use a feature that is only available in some newer gob version.  Note however
+ that you can only use these defines in the C code portions of your .gob file,
+-and #ifdef\'s cannot span multiple functions.  Check the BUGS section
++and #ifdef's cannot span multiple functions.  Check the BUGS section
+ for more on using the C preprocessor and gob.
+ .PP
+ .B "Minimum version requires:"
+ .PP
+ You can also make your .gob file require at least certain version of gob.  You
+-do this by putting \'requires x.y.z\' (where x.y.z is the version number)
++do this by putting 'requires x.y.z' (where x.y.z is the version number)
+ outside of any C block, comment or class, usually you should make this the
+ first line in the file or close to the top.  If gob finds this and the version
+ of gob used to compile the code is lower then that listed in the require, gob
+@@ -971,12 +971,12 @@
+ You can create new GObject ENUM, FLAGS and GError types for use in your
+ classes easily.  Glib includes some utilities for handling these, however
+ it may be cleaner to use the below specified way in your classes.  It also
+-then doesn\'t require any Makefile setup.  Make sure this is defined in the
+-same section as the class, that is not in any of the \'%?{\' \'%}\' sections.
++then doesn't require any Makefile setup.  Make sure this is defined in the
++same section as the class, that is not in any of the '%?{' '%}' sections.
+ .PP
+-You use the keywords \'enum\' \'flags\' and \'error\' as you would use the
+-\'class\' keyword.  Then you give a prefix for the values in the enumeration.
+-Then you define a list of values just like in C.  For \'enum\' types you can
++You use the keywords 'enum' 'flags' and 'error' as you would use the
++ 'class' keyword.  Then you give a prefix for the values in the enumeration.
++Then you define a list of values just like in C.  For 'enum' types you can
+ also specify the values assigned to each string.  Then you specify the type in
+ the standard gob style of specifying types.  Here are a few examples
+ of all of these:
+@@ -1019,7 +1019,7 @@
+ to use the \-\-for\-cpp argument to gob.  This will make the generated file have
+ a .cc instead of a .c extension, and several things will be adjusted to
+ make it all work for a C++ compiler.  One thing that will be missing is an
+-alias to the new method, as that clashes with C++, so instead you\'ll have to
++alias to the new method, as that clashes with C++, so instead you'll have to
+ use the full name of the method inside your code.  Also note that gob does
+ not use any C++ features, this option will just make the generated code
+ compile with a C++ compiler.
+@@ -1045,12 +1045,12 @@
+ .SH INTERFACES
+ .PP
+ Currently gob will only allow you to implement interfaces (that is, define new
+-classes which implement an interface) and doesn\'t yet have support for making
++classes which implement an interface) and doesn't yet have support for making
+ new interfaces, but this will be coming at some point in the future.
+ .PP
+-To define a class that implements an interface add a class flag \'interface\'
++To define a class that implements an interface add a class flag 'interface'
+ with the type name of the interface as an argument.  Then to implement
+-a specific method of the interface, just add \'interface <typename>\'
++a specific method of the interface, just add 'interface <typename>'
+ before the method definition.  The method can, and probably should be,
+ private.
+ .PP
+@@ -1122,12 +1122,12 @@
+   }
+ 
+ .fi
+-Note that the implementation method can be private, in fact that\'s probably
+-a good idea to do.  It won\'t work to make this a signal, it can however
++Note that the implementation method can be private, in fact that's probably
++a good idea to do.  It won't work to make this a signal, it can however
+ be a virtual.  Note that the method prototype must match the one from the
+ interface header file, or you will get a bad assignment warning.  You should
+ check the header file generated by orbit\-idl and see the epv structure
+-for the correct prototypes if you can\'t figure them out from the idl itself.
++for the correct prototypes if you can't figure them out from the idl itself.
+ Also note that the first argument is not "self", but the servant and you must
+ use bonobo_object_from_servant function to get the actual object pointer.
+ 
+@@ -1196,18 +1196,18 @@
+ Gob will need to define some local variables and functions in the generated
+ files, so you need to take some precaution not to conflict with these.  The
+ general rule of thumb is that all of these start with three underscores.  There
+-is one, "parent_class" which doesn\'t because it\'s intended for use in your
++is one, "parent_class" which doesn't because it's intended for use in your
+ code.  For virtuals or signals, you cannot use the identifier __parent__
+ which is used for the parent of the object.  You should actually never access
+ __parent__ either as it not guaranteed that it will stay named this way.
+ Data members cannot be named __parent__ nor _priv.  For methods, you cannot
+ use the identifiers "init" or "class_init" unless you mean the constructor
+-methods.  You shouldn\'t generally use 3 underscores even in override method
++methods.  You shouldn't generally use 3 underscores even in override method
+ argument lists and virtual and signal method names as it might confuse the
+ PARENT_HANDLER macro.  In fact avoiding all names with three underscores is
+ the best policy when working with gob.
+ .PP
+-There are a couple of defines which you shouldn\'t be redefining in the code
++There are a couple of defines which you shouldn't be redefining in the code
+ or other headers.  These are SELF, IS_SELF, SELF_CLASS, SELF_TYPE, ARG, VAR,
+ PARENT_HANDLER, GET_NEW, GOB_VERSION_MAJOR, GOB_VERSION_MINOR and
+ GOB_VERSION_PATCHLEVEL.
+@@ -1255,7 +1255,7 @@
+ .SH DEALING WITH CIRCULAR HEADERS
+ .PP
+ Sometimes you may need to use an object of type MyObjectA in the MyObjectB
+-class and vice versa.  Obviously you can\'t include headers for both.  So you
++class and vice versa.  Obviously you can't include headers for both.  So you
+ need to just declare the typedef in the header of A for B, and the other way
+ around as well.  The headers generated include a protecting
+ define before it declares the typedef.  This define is the
+@@ -1270,11 +1270,11 @@
+ 
+ .fi
+ Now instead of including my\-object\-a.h in the header section of
+-my\-object\-b.gob, just copy the above code there and you\'re set for using
++my\-object\-b.gob, just copy the above code there and you're set for using
+ MyObjectA as a type in the method parameters and public types.
+ .PP
+ Another way to get out of this problem is if you can use those types only
+-in the private members, in which case they won\'t be in the generated public
++in the private members, in which case they won't be in the generated public
+ header.
+ 
+ .SH BUILDING WITH MAKE
+@@ -1282,7 +1282,7 @@
+ If you are using normal makefiles, what you need to do is to add a generic
+ rule for .gob files.  So you would include the following in the Makefile
+ and then just use the .c and .h files as usual (make sure the space
+-before the \'gob2\' is a tab, not spaces):
++before the 'gob2' is a tab, not spaces):
+ .nf
+ 
+   %.c %.h %\-private.h: %.gob
+@@ -1353,7 +1353,7 @@
+ .SH M4 SUPPORT
+ .PP
+ It is possible to have your .gob file also preprocessed by m4.  This is useful
+-if you have a lot of files and you\'d like to have some preprocessor put in
++if you have a lot of files and you'd like to have some preprocessor put in
+ some common features.  All you have to do is add \-\-m4 to the command line
+ of gob2 and gob2 will first run your file through m4.  You can print the
+ directory that is searched for m4 files by running "gob2 \-\-m4\-dir"
+@@ -1364,13 +1364,13 @@
+ 
+ .SH BUGS
+ .PP
+-The lexer does not actually parse the C code, so I\'m sure that some corner
++The lexer does not actually parse the C code, so I'm sure that some corner
+ cases or maybe even some not so corner cases of C syntax might confuse gob
+ completely.  If you find any, send me the source that makes it go gaga and
+-I\'ll try to make the lexer try to handle it properly, but no promises.
++I'll try to make the lexer try to handle it properly, but no promises.
+ .PP
+ Another thing is that gob ignores preprocessor macros.  Since gob counts
+-braces, the following code won\'t work:
++braces, the following code won't work:
+ .nf
+ 
+   #ifdef SOME_DEFINE
+@@ -1382,7 +1382,7 @@
+   }
+ 
+ .fi
+-To make this work, you\'d have to do this:
++To make this work, you'd have to do this:
+ .nf
+ 
+   #ifdef SOME_DEFINE
+@@ -1397,8 +1397,8 @@
+ .fi
+ There is no real good way we can handle this without parsing C code, so we
+ probably never will.  In the future, I might add #if 0 as a comment but
+-that\'s about as far as I can really take it and even that is problematic.
+-Basically, if you use gob, just don\'t use the C preprocessor too extensively.
++that's about as far as I can really take it and even that is problematic.
++Basically, if you use gob, just don't use the C preprocessor too extensively.
+ And if you use it make sure that you do not cross the boundaries of the C
+ code segments.
+ .PP
+@@ -1407,7 +1407,7 @@
+ .PP
+ The short name aliases are actually implemented as pointers to functions.  Thus
+ if you want to get the pointer of a function using the short name alias you
+-can\'t use the \'&\'.  Thus:
++can't use the '&'.  Thus:
+ .nf
+ 
+   void (*foo)(Self *);
