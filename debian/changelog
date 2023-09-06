@@ -1,5 +1,347 @@
-template-repository (1.0-1) unstable; urgency=medium
+gob2 (2.0.20-3) unstable; urgency=medium
 
-  * Initial release
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster:
+    + Build-Depends: Drop versioned constraint on debhelper.
+  * Use secure URI in Homepage field.
+  * Bump debhelper dependency to >= 11, since that's what is used in
+    debian/compat.
+  * Set debhelper-compat version in Build-Depends.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+  [ Stephen Kitt ]
+  * Bump debian/watch to version 4.
+  * Set “Rules-Requires-Root: no”.
+  * Bump to debhelper compatibility level 13.
+  * Stop shipping the TODO file, it’s not useful for users.
+  * Drop gob2.dirs, it’s no longer necessary.
+  * Standards-Version 4.6.1, no further change required.
+  * Fix quoting and spelling in the man page.
+  * Rewrite debian/copyright in DEP5 format.
+
+ -- Stephen Kitt <skitt@debian.org>  Sat, 22 Oct 2022 10:27:31 +0200
+
+gob2 (2.0.20-2) unstable; urgency=medium
+
+  * gob2’s behaviour is arch-independent, so mark it Multi-Arch: foreign
+    (allowing it to be used in cross-builds). Thanks to Helmut Grohne for
+    the report and patch! (Closes: #890536.)
+  * Adjust priority from “extra” to “optional”.
+  * Clean up debian/control using cme.
+  * Switch to debhelper compatibility level 11.
+  * Enable all hardening options.
+  * Fix the upstream download URL in debian/watch.
+  * Fix some spelling errors.
+  * Standards-Version 4.1.3, no further change required.
+
+ -- Stephen Kitt <skitt@debian.org>  Fri, 16 Feb 2018 21:02:15 +0100
+
+gob2 (2.0.20-1) unstable; urgency=medium
+
+  * New upstream version, with support for gtk+3 (closes: #729678).
+
+ -- Stephen Kitt <skitt@debian.org>  Sun, 15 Dec 2013 15:45:50 +0100
+
+gob2 (2.0.19-1) unstable; urgency=low
+
+  * New upstream version.
+  * Switch to my Debian address and drop DM-Upload-Allowed.
+  * Switch to debhelper 9.
+  * Standards-Version 3.9.4, no change required.
+
+ -- Stephen Kitt <skitt@debian.org>  Sun, 05 May 2013 20:15:56 +0200
+
+gob2 (2.0.18-1) unstable; urgency=low
+
+  * New upstream version.
+  * Remove all patches, merged upstream.
+  * Standards-Version 3.9.1, no change required.
+
+ -- Stephen Kitt <steve@sk2.org>  Thu, 06 Jan 2011 22:39:31 +0100
+
+gob2 (2.0.17-1) unstable; urgency=low
+
+  * New maintainer (closes: #579454).
+  * New upstream version.
+  * Add ${misc:Depends} to the dependencies.
+  * Switch to debhelper 7.
+  * Drop gob.diff, merged upstream.
+  * Mention homepage.
+  * Standards-Version 3.8.4, no change required.
+  * Change GOB2_CHECK to produce an error if gob2 is not found (LP:
+    #317801).
+  * Escape minus signs where necessary in the manpage.
+  * Add watch file.
+  * Update debian/copyright; generated code is public domain, not LGPL.
+
+ -- Stephen Kitt <steve@sk2.org>  Sun, 30 May 2010 18:47:12 +0200
+
+gob2 (2.0.16-4) unstable; urgency=low
+
+  * Change maintainer address.
+
+ -- Mark Brown <broonie@debian.org>  Wed, 28 Apr 2010 21:17:45 +0100
+
+gob2 (2.0.16-3) unstable; urgency=low
+
+  * Orphan package.
+
+ -- Mark Brown <broonie@debian.org>  Tue, 27 Apr 2010 20:28:53 +0100
+
+gob2 (2.0.16-2) unstable; urgency=low
+
+  * Convert to format 3.0 (quilt).
+  * Apply upstream fix for segfault on dispose/finalise/construct methods
+    at build time (closes: #574542).
+
+ -- Mark Brown <broonie@debian.org>  Tue, 30 Mar 2010 21:19:30 +0100
+
+gob2 (2.0.16-1) unstable; urgency=low
+
+  * New upstream release.
+  * Policy 3.8.2 (no changes).
+
+ -- Mark Brown <broonie@debian.org>  Tue, 21 Jul 2009 21:48:50 +0100
+
+gob2 (2.0.15-1) unstable; urgency=low
+
+  * New upstream release.
+  * This release fixes handling of mismatched include quotes (closes: #443907).
+  * Policy 3.7.2 (no changes).
+
+ -- Mark Brown <broonie@debian.org>  Wed, 21 Nov 2007 20:34:45 +0000
+
+gob2 (2.0.14-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Thu,  5 Jan 2006 20:55:30 +0000
+
+gob2 (2.0.13-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Sat, 17 Dec 2005 12:41:30 +0000
+
+gob2 (2.0.12-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Sat, 23 Jul 2005 13:57:25 +0100
+
+gob2 (2.0.11-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Wed, 27 Oct 2004 19:38:32 +0100
+
+gob2 (2.0.10-1) unstable; urgency=low
+
+  * New upstream release.
+  * This upstream release generates code which compiles with modern C++
+    compilers (closes: #270546).
+
+ -- Mark Brown <broonie@debian.org>  Sat, 25 Sep 2004 09:49:59 +0100
+
+gob2 (2.0.9-1) unstable; urgency=low
+
+  * New upstream release.
+  * Policy 3.6.1 (no changes).
+
+ -- Mark Brown <broonie@debian.org>  Mon, 19 Jul 2004 23:04:26 +0100
+
+gob2 (2.0.8-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Sat, 12 Jun 2004 09:27:34 +0100
+
+gob2 (2.0.7-1) unstable; urgency=low
+
+  * New upstream release.
+  * This release complains if boxed types are used with signals - pointers
+    should be used instead (closes: #201446).
+
+ -- Mark Brown <broonie@debian.org>  Wed, 31 Mar 2004 18:05:02 +0100
+
+gob2 (2.0.6-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Tue, 20 May 2003 19:39:28 +0100
+
+gob2 (2.0.5-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Fri, 17 Jan 2003 08:26:00 +0000
+
+gob2 (2.0.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Sat, 14 Dec 2002 13:35:12 +0000
+
+gob2 (2.0.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * This release correctly handles C++ scopes (closes: #166588).
+
+ -- Mark Brown <broonie@debian.org>  Sat,  2 Nov 2002 12:09:33 +0000
+
+gob2 (2.0.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Wed, 21 Aug 2002 01:40:14 +0100
+
+gob2 (2.0.1-2) unstable; urgency=low
+
+  * Escape quotes at start of line in man page (closes: #155577).
+
+ -- Mark Brown <broonie@debian.org>  Tue,  6 Aug 2002 00:09:03 +0100
+
+gob2 (2.0.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Wed, 17 Jul 2002 20:29:36 +0100
+
+gob2 (2.0.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * New maintainer.
+  * config.cache isn't actually built so depending on it in debian/rules is
+    counterproductive - use the binary instead.
+
+ -- Mark Brown <broonie@debian.org>  Tue, 16 Jul 2002 22:55:24 +0100
+
+gob2 (1.99.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Bastien Nocera <hadess@hadess.net>  Fri, 31 May 2002 04:23:11 +0100
+
+gob2 (1.99.2.cvs.20020118-1) unstable; urgency=low
+
+  * Built from current CVS from glib2
+
+ -- Bastien Nocera <hadess@hadess.net>  Sun, 20 Jan 2002 10:53:21 +0000
+
+gob (1.0.11-2) unstable; urgency=low
+
+  * Correct spelling in package description, thanks to Matt Zimmerman
+    <mdz@debian.org>.
+
+ -- Mark Brown <broonie@debian.org>  Sat, 17 Nov 2001 11:52:05 +0000
+
+gob (1.0.11-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Thu, 11 Oct 2001 20:50:28 +0100
+
+gob (1.0.10-1) unstable; urgency=low
+
+  * New upstream release.
+    - Doesn't generate empty private headers by default (closes:
+      #102079),
+    - Fixes typo in manual page (closes: #102082).
+
+ -- Mark Brown <broonie@debian.org>  Mon,  2 Jul 2001 00:31:51 +0100
+
+gob (1.0.9-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Sun, 22 Apr 2001 13:09:55 +0100
+
+gob (1.0.8-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Thu, 12 Apr 2001 18:11:56 +0100
+
+gob (1.0.7-1) unstable; urgency=low
+
+  * New upstream release.
+  * Standards version 3.5.2 (no changes).
+
+ -- Mark Brown <broonie@debian.org>  Mon, 26 Feb 2001 00:09:13 +0000
+
+gob (1.0.5-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Mon, 11 Sep 2000 08:44:09 +0100
+
+gob (1.0.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Mon, 24 Jul 2000 18:07:32 +0100
+
+gob (1.0.3-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Thu,  6 Jul 2000 17:06:17 +0100
+
+gob (1.0.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Fri, 30 Jun 2000 23:11:22 +0100
+
+gob (1.0.1-2) unstable; urgency=low
+
+  * Build-depends on debhelper (closes: #65416).
+
+ -- Mark Brown <broonie@debian.org>  Fri,  9 Jun 2000 18:10:53 +0100
+
+gob (1.0.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Thu,  8 Jun 2000 02:25:38 +0100
+
+gob (1.0.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Thu,  1 Jun 2000 18:35:50 +0100
+
+gob (0.93.5-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Sun, 21 May 2000 14:01:16 +0100
+
+gob (0.93.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Sun, 30 Apr 2000 11:55:11 +0100
+
+gob (0.93.3-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Sun, 16 Apr 2000 12:23:24 +0100
+
+gob (0.93.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Mon,  3 Apr 2000 02:43:39 +0100
+
+gob (0.93.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mark Brown <broonie@debian.org>  Tue, 28 Mar 2000 00:03:11 +0100
+
+gob (0.93.0-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Mark Brown <broonie@debian.org>  Tue, 21 Mar 2000 19:56:29 +0000
